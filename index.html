@@ -131,6 +131,103 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-20T01:45:27.429Z">2018-12-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 190 个字)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/12/20/使用github page+阿里云域名搭建个人博客/"></a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="使用github-page-阿里云域名搭建个人博客"><a href="#使用github-page-阿里云域名搭建个人博客" class="headerlink" title="使用github page+阿里云域名搭建个人博客"></a>使用github page+阿里云域名搭建个人博客</h1><hr>
+<p>####1、下载git</p>
+<p>####2、安装node.js</p>
+<p>####3、安装hexo</p>
+<p>####4、下载主题，然后hexo clean | hexo g | hexo d素质三连</p>
+<p>####5、阿里云购买域名</p>
+<p>####6、hexo主目录下source文件夹下新建名为CNAME的文件，文件里面写入zhangxianxin.top(你的域名）。</p>
+<p>####7、阿里云添加三条域名解析记录<br>       第一条为CNAME类型的解析记录，主机记录为WWW，记录值为你的博客GitHub page域名，我的是mmrblack.github.io。<br>       后两条类型为A，主机记录为@，记录值分别为185.199.110.153和185.199.110.154。<br>       由于我的域名还绑定了腾讯企业邮箱，以上顺序不可颠倒。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-20T01:45:27.429Z">2018-12-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 308 个字)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/12/20/搭建SS通道/"></a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="搭建SS通道"><a href="#搭建SS通道" class="headerlink" title="搭建SS通道"></a>搭建SS通道</h1><hr>
+<p>我的系统为Ubuntu 18.04</p>
+<p>####1、安装pip<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install python-pip</span><br><span class="line">sudo apt-get install python-setuptools m2crypto</span><br></pre></td></tr></table></figure></p>
+<p>####2、安装shadowsocks<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br><span class="line">sudo apt install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<p>####3、修改openssl.py文件（这是一个大坑）<br>利用命令找到openssl.py文件<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo find / -name openssl.py</span><br></pre></td></tr></table></figure></p>
+<p>打开文件<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /你的路径/openssl.py</span><br></pre></td></tr></table></figure></p>
+<p>利用 :/string命令一个个找到cleanup这个单词，然后一个个替换成reset<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/cleanup</span><br></pre></td></tr></table></figure></p>
+<p>####4、配置文件<br>在系统新建一个文件<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /home/ubuntu/shadowsocks.json</span><br></pre></td></tr></table></figure></p>
+<p>文件里面写入<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">&quot;server_port&quot;:8388,</span><br><span class="line">&quot;password&quot;:&quot;your_password&quot;,</span><br><span class="line">&quot;timeout&quot;:600,</span><br><span class="line">&quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">&quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果开启多个端口就写入<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">&quot;port_password&quot;: &#123;</span><br><span class="line">&quot;8388&quot;: &quot;your_password1&quot;,</span><br><span class="line">&quot;8389&quot;: &quot;your_password2&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;timeout&quot;:600,</span><br><span class="line">&quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">&quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>:wq保存。</p>
+<p>####5、开启shadowsocks<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /home/ubuntu/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p>
+<p>停止ss<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /home/ubuntu/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure></p>
+<p>####6、设为开机启动<br>创建service文件<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/systemd/system/shadowsocks.service</span><br></pre></td></tr></table></figure></p>
+<p>写入以下内容<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Shadowsocks</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/run/shadowsocks/server.pid</span><br><span class="line">PermissionsStartOnly=true</span><br><span class="line">ExecStartPre=/bin/mkdir -p /run/shadowsocks</span><br><span class="line">ExecStartPre=/bin/chown root:root /run/shadowsocks</span><br><span class="line">ExecStart=/usr/local/bin/ssserver --pid-file /var/run/shadowsocks/server.pid -c /etc/shadowsocks/config.json -d start</span><br><span class="line">Restart=on-abort</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">UMask=0027</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>设置文件权限<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /etc/systemd/system/shadowsocks.service</span><br></pre></td></tr></table></figure></p>
+<p>启动服务<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start shadowsocks</span><br><span class="line">systemctl enable shadowsocks</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-11-19T11:55:16.246Z">2018-11-19</time>
                 
                 
@@ -202,7 +299,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        3
                     </p>
                 </div>
             </div>
@@ -339,6 +436,44 @@
         
         <article class="media">
             
+            <a href="/2018/12/20/使用github page+阿里云域名搭建个人博客/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:45:27.429Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/使用github page+阿里云域名搭建个人博客/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/20/搭建SS通道/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:45:27.429Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/搭建SS通道/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/11/19/hello-world/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="你好,hexo">
@@ -367,6 +502,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/11/">
@@ -416,6 +562,44 @@
         
         <article class="media">
             
+            <a href="/2018/12/20/使用github page+阿里云域名搭建个人博客/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:45:27.429Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/使用github page+阿里云域名搭建个人博客/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/20/搭建SS通道/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-20T01:45:27.429Z">2018-12-20</time></div>
+                    <a href="/2018/12/20/搭建SS通道/" class="has-link-black-ter is-size-6"></a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/11/19/hello-world/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="你好,hexo">
@@ -444,6 +628,17 @@
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/11/">
